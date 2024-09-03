@@ -1,12 +1,12 @@
-from locust import HttpUser,Taskset,task,between
+from locust import HttpUser,TaskSet,task,between
 import random
-class UserBehaviour(Taskset):
+class UserBehaviour(TaskSet):
     @task
     def like_post(self):
         post_id=1
-        self.client.get(f'posts/{post_id}/'),
+        self.client.get(f'posts/{post_id}/',
         data={},
-        headers={'Content-Type': 'application/json'}
+        headers={'Content-Type': 'application/json'})
 class websiteUser(HttpUser):
-    task=[UserBehaviour]
+    tasks=[UserBehaviour]
     wait_time=between(1,2)
