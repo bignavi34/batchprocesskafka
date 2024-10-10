@@ -13,4 +13,3 @@ def send_like_event(post_id):
     callback=delivery_report)
     print("Delivery report")
     producer.flush()
-
